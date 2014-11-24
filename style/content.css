@@ -6,6 +6,10 @@ html, body{
     background-color: #F8F8F8;
 }
 
+pre {
+    margin: 0;
+}
+
 .content {
     margin: 0 auto;
     width: 900px;
@@ -14,4 +18,7 @@ html, body{
 .content-wrap {
     _height: 600px;
     min-height:600px ;
+    white-space: pre;
+    font-size: 14px;
+    line-height: 22px;
 }

@@ -9,10 +9,10 @@
 <body>
 
 <div class="content">
+	<h2>{{ page.title }}</h2>
+	<h6>{{ page.date | date_to_string }}&nbsp;&nbsp;&nbsp;[{{page.tags}}]</h6>
 	<div class="content-wrap">
-			<h2>{{ page.title }}</h2>
-			<h6>{{ page.date | date_to_string }}</h6>
-		　　{{ content }}
+{{ content }}
 	</div>
 	<div class="ds-thread" data-thread-key="{{ post.url }}" data-title="heloworld" data-url="{{ site.baseurl }}{{ post.url }}">
 	</div>
