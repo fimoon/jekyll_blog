@@ -10,6 +10,8 @@
 
 <div class="content">
 	<div class="content-wrap">
+			<h2>{{ page.title }}</h2>
+			<h6>{{ page.date | date_to_string }}</h6>
 		　　{{ content }}
 	</div>
 	<div class="ds-thread" data-thread-key="{{ post.url }}" data-title="heloworld" data-url="{{ site.baseurl }}{{ post.url }}">
