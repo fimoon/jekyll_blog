@@ -1,0 +1,59 @@
+---
+layout: content
+title : controller到底用来干什么？
+tag: 技术, 架构, 思考
+---
+	最近时间比较充裕，把以前写的发布controller重新看了一下，兼职就是一个字啊：乱！！实在是太他妈的乱了，我有
+过以下的思路：
+	1. 每一个Action都新建一个文件，这个Action对应的权限验证，表单数据，view数据都放到父类中
+	2. 如果所有的东西都成功的话还好，麻烦再任何时候都要处理异常，我的想法是在代码中不体现异常，把对异常的处理
+	放到routing中去
+	3. 通过组织几个类的继承，来让子类中只写数据的获取方法，填完需要的数据就可以了
+
+	后来，证明这种东西真是不太可行，这个对于单独的Action来说尚可，但是很多情况下都是多个Action来回跳转的，而每
+一个Action都是独一无二的请求，都有自己的上下文，这样数据的传递就比较麻烦了，通过参数算是比较简单粗暴的了。
+	forward？倒是可以做到几个Action来回跳转，可是对数据的获取方法就要重写两遍了。比如下面这个例子：
+	现在需要用户来填写一个表单来作为下一个表单的生成参数，
+
+	比如你上一步填写了学生，我会在下一步生成你的学校年级专业表单
+	如果你上一步填写了在职，我会在下一步生成你的薪资职级福利表单
+
+	在不使用spa(single page application)的情况下，要做到上一步的数据来生成下一步的表单，就需要把一些东西传到
+下一个页面，对了还好说，如果错了的话，还要求表单重填（也就是把错误的东西再填上，提升用户体验），就要在两个表单之间来回
+跳转，真是烦死了。
+
+	后来我的解决方案是这两个Action在一个controller中，对于Action来说他的内容就是处理post请求和展示view上边的数据
+这样我的代码就成了这样：
+
+	class MessageController {
+
+		// 这里对应选择到底是学生还是在职
+		public function selectRoleAction() {
+			$this->selectRolePost();
+			$this->selectRoleViewData();
+		}
+
+		// 这里对应填充表单的Action
+		public function fillFormAction() {
+			$this->fillFormPost();
+			$this->fillFormViewData();
+		}
+
+		private function selectRolePost() {
+			try {
+				// forward fillFormAction with postData;
+			} catch () {
+				// set errMsg;
+			}
+		}
+
+		private function fillFormPost() {}
+
+		private function selectRoleViewData() {}
+
+		private function fillFormViewData() {}
+	}
+
+这里用try catch 接到异常之后就只需要set 一下errMsg 就可以自然render到自己的页面，错误的展示在前端做。
+
+	开始思考这样写到底好不好，controller，Action到底应该怎样去用？
