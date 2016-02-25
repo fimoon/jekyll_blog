@@ -3,6 +3,7 @@ layout: content
 title : controller到底用来干什么？
 tag: 技术, 架构, 思考
 ---
+<pre>
 	最近时间比较充裕，把以前写的发布controller重新看了一下，简直就是一个字啊：乱！！实在是太他妈的乱了，我有
 过以下的思路：
 	1. 每一个Action都新建一个文件，这个Action对应的权限验证，表单数据，view数据都放到父类中
@@ -61,3 +62,4 @@ tag: 技术, 架构, 思考
 这里用try catch 接到异常之后就只需要set 一下errMsg 就可以自然render到自己的页面，错误的展示在前端做。
 
 	开始思考这样写到底好不好，controller，Action到底应该怎样去用？
+</pre>
