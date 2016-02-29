@@ -25,8 +25,8 @@ tag: 技术, 架构, 思考
 
 	后来我的解决方案是这两个Action在一个controller中，对于Action来说他的内容就是处理post请求和展示view上边的数据
 这样我的代码就成了这样：
+
 <code>
-```
 
 	class MessageController {
 
@@ -56,7 +56,6 @@ tag: 技术, 架构, 思考
 
 		private function fillFormViewData() {}
 	}
-```
 
 </code>
 这里用try catch 接到异常之后就只需要set 一下errMsg 就可以自然render到自己的页面，错误的展示在前端做。
