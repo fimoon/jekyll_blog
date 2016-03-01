@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+　　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+　　<title>php是不是应该是前端语言？</title>
+	<link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/style/content.css" />
+	<link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" />
+	<script type="text/javascript" src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+</head>
+<body>
+
+
+
+<div class="content">
+	<h2>php是不是应该是前端语言？</h2>
+	<h6>25 Nov 2014&nbsp;&nbsp;&nbsp;[技术, 架构, 思考]</h6>
+
+	<div class="PageNavigation">
+	  
+	    <a class="prev" href="/2014/11/24/%E5%85%B3%E4%BA%8E%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81.html">&laquo; 站内消息的实现与思考</a>
+	  
+	  
+	    <a class="next" href="/2015/01/25/php+redis+mysql+nginx+vagrant%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B5%8B%E8%AF%95.html">php, redis, mysql, nginx, vagrant(nginx+centos)实现一套开发部署环境 &raquo;</a>
+	  
+	</div>
+
+	<div class="content-wrap">
+	记得前段时间有个妹子问我，软件硬件的区别。当时竟然一时语塞，最终也没有回答上来。
+
+	后来想了一下，软件硬件的共同点当然都是写代码的才能完成的事情，代码也就是逻辑，也就是说
+软件硬件都是需要程序猿把逻辑灌输给一些逻辑的表现者，这个表现者对于硬件来说是电机，继电器，开关，
+温度计，光感仪器等。对于软件来说就是数据库，网络，网页，操作系统等。
+
+	还是有点复杂？ 硬件就是逻辑操作"物理器件"，软件就是逻辑操作"数据"。
+
+	对！软件操作的就是数据，数据来表达各种状态，信息，信号，协议。
+
+	各种业务逻辑，都是对数据的增删改查。代码的循环按照数组的格式来写，数据库字段按照数据来存储。
+
+	这篇blog并不讨论这些，只是简单思考一下。
+
+	那么对于一个系统，什么是前端，什么是后端？
+
+	前端是交互和表现，后端是业务和架构？
+
+	传统的java后端架构是四层，model，view，controller，service
+
+	前端主要精力在view，后端主要精力在model，业务放在service，controller是web应用前后端交互的一层，需要前后端
+一起来设计，我理解为协议
+
+	可是，在实际情况中还是有很多controller中写sql，service中操作cookie，model中为了拿到前端的一个排行榜，单独写
+一个函数来做表之间的join。。。
+
+	不科学的写法，往往是架构进化的突变。
+
+	为什么不能从数据来区分前后端？前后端的数据分离了，才能做到真正的分离！！
+
+	php作为一种弱类型语言，特别适合web开发，加上字符串和数组的操作，特别适合对展现的数据做格式化，遍历等操作。
+
+
+	未完待续。。。
+	</div>
+	<div class="ds-thread" data-thread-key="" data-title="heloworld" data-url="">
+	</div>
+</div>
+
+</body>
+<script type="text/javascript">
+	// 代码高亮
+	hljs.initHighlightingOnLoad();
+
+	var duoshuoQuery = {short_name:"fimoonme"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+</html>
